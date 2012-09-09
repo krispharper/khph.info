@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ "$1" = "-d" ]; then
+    echo "Deploying website to development server"
+    find /var/www/* -exec rm -rv {} \;
+    find /var/www/. -exec rm -rv {} \;
+    cp -rv /home/kris/Documents/Development/khph.info/* /var/www/
+    rm -v /var/www/deploy
+elif [ "$1" = "-p" ]; then
+    echo "prod"
+else
+    echo "Usage: deploy [-d | -p]" >&2
+    exit 1
+fi

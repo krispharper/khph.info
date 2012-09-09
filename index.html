@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KHPH Wedding Information</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#content-right').cycle({
+          fx:                 'blindX',
+          speed:              'slow',
+          timeout:            0,
+          pager:              '#nav',
+          pagerAnchorBuilder: function(idx, slide) {
+              return '#nav li:eq(' + (idx) + ') a';
+          }
+        });
+      });
+    </script>
+    <script type="text/javascript" src="js/cufon-yui.js"></script>
+    <script type="text/javascript" src="js/goudy-bookletter.js"></script>
+    <script type="text/javascript" src="js/quicksand.js"></script>
+    <script type="text/javascript">
+                Cufon.replace('#menu-header', { fontFamily: 'Goudy Bookletter 1911', hover: true });
+                Cufon.replace('#nav li a', { fontFamily: 'Quicksand Book Regular', hover: true });
+    </script> 
+  </head>
+  <body>
+    <div id="content">
+  	  <div id="content-left">
+        <div id="menu-header">
+            Kris &amp; Paula
+        </div>
+        <div id="menu-divider"></div>
+        <div id="menu">
+          <ul id="nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">The Event</a></li>
+          <!-- <li><a href="#">Photos</a></li> -->
+          <li><a href="#">RSVP</a></li>
+          <li><a href="#">Registry</a></li>
+          <li><a href="#">Contact</a></li>
+        </div>
+  	  </div>
+      <div id="content-right">
+        <div id="home">
+          <div class="overlay">
+            <h1>Welcome</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+          </div>
+        </div>
+        <div id="about">
+          About us
+        </div>
+        <div>
+          The Event
+        </div>
+        <div>
+          RSVP
+        </div>
+        <div>
+          Registry
+        </div>
+        <div>
+          Contact
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -9,10 +9,11 @@ body {
 }
 
 img.vr{
-    margin-left:auto;
-    margin-right:auto;
-    float:left;
     height:200px;
+    vertical-align:top;
+    display:inline-block;
+    *display:inline;
+    zoom:1;
 }
 
 /* Main Sections */
@@ -118,24 +119,25 @@ img.vr{
 }
 
 /* About Us */
-#about-wrap{
-    float:left;
-    position:relative;
-    left:50%;
-}
 #about-content{
-    position:relative;
-    left:-50%;
+    text-align:justify;
+    -ms-text-justify:distribute-all-lines;
+    text-justify:distribute-all-lines;
+}
+#about-content:after{
+    content:'';
+    width:100%;
+    display:inline-block;
+    font-size:0;
+    line-height:0;
 }
 .about-section{
     width:250px;
     margin:20px 10px 0px 10px;
-}
-#about{
-    border-style:solid;
-    background-color:#0000FF;
-    height=450px;
-    float:left;
+    vertical-align:top;
+    display:inline-block;
+    *display:inline;
+    zoom:1;
 }
 #event{
 }

@@ -8,6 +8,13 @@ body {
     height:100%;
 }
 
+img.vr{
+    margin-left:auto;
+    margin-right:auto;
+    float:left;
+    height:200px;
+}
+
 /* Main Sections */
 #content{
     margin:100px auto;
@@ -75,16 +82,24 @@ body {
 }
 
 /* Pages */
+.header{
+    height:117px;
+    width:630px;
+    background-image:url('images/banner.png');
+    background-size:100% 100%;
+    background-color:#FFFFFF;
+}
 
 /* Home */
 #home{
     background-image:url(images/map.png);
     background-size:100% 100%;
+    background-color:#FFFFFF;
     width:630px;
     height:450px;
 }
 .overlay{
-    background-color:#000;
+    background-color:#000000;
     filter: alpha(opacity=75);
     -moz-opacity: 0.75;
     -khtml-opacity: 0.75;
@@ -95,14 +110,32 @@ body {
     margin-left:280px;
 }
 .overlay h1{
-    color:#FFF;
+    color:#FFFFFF;
 }
 .overlay p{
     font-size:12px;
-    color:#FFF;
+    color:#FFFFFF;
 }
+
+/* About Us */
+#about-wrap{
+    float:left;
+    position:relative;
+    left:50%;
+}
+#about-content{
+    position:relative;
+    left:-50%;
+}
+.about-section{
+    width:250px;
+    margin:20px 10px 0px 10px;
 }
 #about{
+    border-style:solid;
+    background-color:#0000FF;
+    height=450px;
+    float:left;
 }
 #event{
 }

@@ -9,7 +9,8 @@ body {
 }
 
 img.vr{
-    height:200px;
+    height:300px;
+    margin-top:10px;
     vertical-align:top;
     display:inline-block;
     *display:inline;
@@ -138,6 +139,10 @@ img.vr{
     display:inline-block;
     *display:inline;
     zoom:1;
+}
+img.headshot{
+    float:left;
+    margin:0px 10px 0px 0px;
 }
 #event{
 }

@@ -91,6 +91,18 @@ img.vr{
     background-size:100% 100%;
     background-color:#FFFFFF;
 }
+.sectional-content{
+    text-align:justify;
+    -ms-text-justify:distribute-all-lines;
+    text-justify:distribute-all-lines;
+}
+.sectional-content:after{
+    content:'';
+    width:100%;
+    display:inline-block;
+    font-size:0;
+    line-height:0;
+}
 
 /* Home */
 #home{
@@ -120,18 +132,6 @@ img.vr{
 }
 
 /* About Us */
-#about-content{
-    text-align:justify;
-    -ms-text-justify:distribute-all-lines;
-    text-justify:distribute-all-lines;
-}
-#about-content:after{
-    content:'';
-    width:100%;
-    display:inline-block;
-    font-size:0;
-    line-height:0;
-}
 .about-section{
     width:250px;
     margin:20px 10px 0px 10px;
@@ -144,11 +144,31 @@ img.headshot{
     float:left;
     margin:0px 10px 0px 0px;
 }
-#event{
+
+/* The Event */
+.event-section{
+    width:150px;
+    margin:20px 10px 0px 10px;
+    text-align:center;
+    vertical-align:top;
+    display:inline-block;
+    *display:inline;
+    zoom:1;
 }
+.event-section p{
+    line-height:20px;
+}
+
 #RSVP{
 }
-#Registry{
+
+/* Registry */
+#registry{
+    margin:20px 10px 0px 10px;
+}
+#registry a{
+    display:block;
+    margin:10px 0px 10px 100px;
 }
 #Contact{
 }

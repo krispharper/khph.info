@@ -162,6 +162,7 @@ div#not-registered{
 #about p{
     font-size:9pt;
     margin-bottom:-1px;
+    text-align:left;
 }
 #about a:link, #about a:visited{
     text-decoration:none;
@@ -233,6 +234,9 @@ img.headshot{
     float:left;
     width:300px;
     margin-top:10px;
+}
+#registry-right a, img{
+    border:none;
 }
 #registry-right a{
     display:block;

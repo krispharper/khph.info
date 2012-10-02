@@ -17,14 +17,53 @@
               return '#nav li:eq(' + (idx) + ') a';
           }
         });
+
+        $('#contact-link').click(function() {
+          $('#nav li:eq(5) a').triggerHandler('click');
+          return false;
+        });
+
+        $('#twitter').click(function(e) {
+          var width = 575,
+              height = 400,
+              left = ($(window).width() - width) / 2,
+              top = ($(window).height() - height) / 2,
+              url = this.href,
+              opts = 'status=1' +
+                     ',width=' + width +
+                     ',height=' + height +
+                     ',top=' + top +
+                     ',left=' + left;
+          
+          window.open(url, 'twitter', opts);
+          return false;
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      $(function() {
+        $('a.not-registered-click').click(function(e) {
+          $('div#not-registered').fadeIn('slow')
+            .css('top', e.pageY)
+            .css('left', e.pageX)
+            .appendTo('body');
+        });
+      });
+
+      $(function() {
+        $('div#not-registered').click(function() {
+          $(this).hide();
+        });
       });
     </script>
     <script type="text/javascript" src="js/cufon-yui.js"></script>
     <script type="text/javascript" src="js/goudy-bookletter.js"></script>
     <script type="text/javascript" src="js/quicksand.js"></script>
+    <script type="text/javascript" src="js/quicksand-bold.js"></script>
     <script type="text/javascript">
-                Cufon.replace('#menu-header', { fontFamily: 'Goudy Bookletter 1911', hover: true });
+                Cufon.replace('#menu-header, h1, .about-section-header, .event-section-header', { fontFamily: 'Goudy Bookletter 1911', hover: true });
                 Cufon.replace('#nav li a', { fontFamily: 'Quicksand Book Regular', hover: true });
+                Cufon.replace('.overlay p, p', { fontFamily: 'Quicksand Book Bold', hover: true });
     </script> 
   </head>
   <body>
@@ -48,55 +87,51 @@
       <div id="content-right">
         <div id="home">
           <div class="overlay">
-            <h1>Welcome</h1>
+            <h1>Welcome!</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+              Whether we're seeing you in Seattle or you're meeting us in St. Louis, here's your portal to all things Harper-Horner Wedding.
             </p>
           </div>
         </div>
-        <div>
+        <div id="about">
           <div class="header">
           </div>
           <div class="sectional-content">
-            <div class="about-section">
-              <img class="headshot" src="images/kris.jpg" width="100"/>
-              <h2>
-                Kris
-              </h2>
+            <div class="about-section-top">
+              <img class="headshot" src="images/kris.png" width="100"/>
+              <span class="about-section-header"><a href="http://www.twitter.com/krispharper" target="_blank">Kris</a></span>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+                Kris ("Alaska") Harper grew up in Fairbanks, Alaska. In 2007, he came to Chicago with an enormous backpack and a thirst for knowledge. Now, he lives in New York City, working as a programmer in the world of finance.
               </p>
             </div>
             <img class="vr" src="images/rule.png" style="height:150px"/>
-            <div class="about-section">
-              <img class="headshot" src="images/paula.jpg" width="100"/>
-              <h2>
-                Paula
-              </h2>
+            <div class="about-section-top">
+              <img class="headshot" src="images/paula.png" width="100"/>
+              <span class="about-section-header"><a href="http://www.twitter.com/pch9857" target="_blank">Paula</a></span>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+                Paula Horner is at school in New York, after being at school in Seattle, after being at school in Chicago, after being at school in St. Louis. After graduation, she will probably switch things up by going to school, location to-be-determined.
               </p>
             </div>
           </div>
           <div class="sectional-content" style="margin:-20px 10px 0px 10px;">
-            <img class="hr" src="images/rule.png" style="width:260px; margin:20px 0px 0px 0px;"/>
-            <div class="about-section" style="width:40px; text-align:center; margin-top:0px;">
-              <h2>
+            <img class="hr" src="images/rule.png" style="width:270px; margin:20px 0px 0px 0px;"/>
+            <div class="about-section-bottom" style="width:40px; text-align:center; margin-top:0px;">
+              <h1>
                 Us
-              </h2>
+              </h1>
             </div>
-            <img class="hr" src="images/rule.png" style="width:260px; margin:20px 0px 0px 0px;"/>
+            <img class="hr" src="images/rule.png" style="width:270px; margin:20px 0px 0px 0px;"/>
           </div>
           <div class="sectional-content" style="margin:-20px 10px 0px 10px;">
-            <div class="about-section" style="width:230px; margin:0px 0px 0px 0px;">
+            <div class="about-section-bottom" style="width:230px; margin:0px 0px 0px 0px;">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+                She was a bubbly orientation aide. He was an eager young first year. UChicago's Wick House brought them together; geography and circumstance kept them apart - for a while. Now, after having spent quite enough time in this
               </p>
             </div>
-            <img class="vr" src="images/rule.png" style="height:100px; width:100px; margin:0px 10px 0px 10px;"/>
-            <div class="about-section" style="width:230px; margin:0px 0px 0px 0px;">
+            <img class="vr" src="images/us.png" style="height:100px; width:100px; margin:0px 10px 0px 10px;"/>
+            <div class="about-section-bottom" style="width:230px; margin:0px 0px 0px 0px;">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+                long-distance relationship business, they've finally made their way to the same city. With a cozy apartment, two crazy kittens, and plenty of adventuring to do, the most exciting question is now: What's next?
               </p>
             </div>
           </div>
@@ -106,24 +141,20 @@
           </div>
           <div class="sectional-content">
             <div class="event-section" style="margin-left:30px">
-              <h2>
-                Ceremony
-              </h2>
+              <span class="event-section-header">Ceremony</span>
               <p>
                 August 24, 2013 2:30 pm
                 <br>
                 St. James Cathedral
                 <br>
-                804 9th Avenue
+                <a href="http://goo.gl/maps/6pjCy" target="_blank">804 9th Avenue</a>
                 <br>
-                Seattle, WA 98104
+                <a href="http://goo.gl/maps/6pjCy" target="_blank">Seattle, WA 98104</a>
               </p>
             </div>
             <img class="vr" src="images/rule.png" style="height:300px"/>
             <div class="event-section">
-              <h2>
-                Reception
-              </h2>
+              <span class="event-section-header">Reception</span>
               <p>
                 August 24, 2013 6:30 pm
                 <br>
@@ -136,17 +167,15 @@
             </div>
             <img class="vr" src="images/rule.png" style="height:300px"/>
             <div class="event-section" style="margin-right:30px">
-              <h2>
-                St. Louis Party
-              </h2>
+              <span class="event-section-header">St. Louis Party</span>
               <p>
                 August 31, 2013 12:30 pm
                 <br>
                 Horner Household
                 <br>
-                11731 Poggemoeller Ave
+                <a href="http://goo.gl/maps/38yii" target="_blank">11731 Poggemoeller Ave</a>
                 <br>
-                St. Louis, MO 63138
+                <a href="http://goo.gl/maps/38yii" target="_blank">St. Louis, MO 63138</a>
               </p>
             </div>
           </div>
@@ -156,28 +185,74 @@
           </div>
           RSVP
         </div>
-        <div>
+        <div id="registry">
           <div class="header">
           </div>
-          <div id="registry">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
-            </p>
-            <a href="http://www.amazon.com/registry/wedding/1PI8CWRAJK3ES" target="_blank">
-              <img src="images/amazon.png" height="25"/>
-            </a>
-            <a href="" target="_blank">
-              <img src="images/cratebarrel.jpg" height="25"/>
-            </a>
-            <a href="" target="_blank">
-              <img src="images/bedbathbeyond.png" height="75"/>
-            </a>
+          <div id="registry-content">
+            <div id="registry-left">
+              <p>
+                If you'd like to get us a gift, these are the places we're registered.
+              </p>
+              <p>
+                Since we live in New York, but the wedding is in Seattle, feel free to send gifts to the New York address on our <span><a id="contact-link" href="#">Contact page</a></span>, bring them to Seattle, or to the St. Louis party.
+				      </p>
+              <p>
+                Whichever works for you works for us!
+              </p>
+            </div>
+            <div style="float:left; width=100px;">
+              <img class="vr" src="images/rule.png" style="height:200px"/>
+            </div>
+            <div id="registry-right">
+              <a href="http://www.amazon.com/registry/wedding/1PI8CWRAJK3ES" title="Amazon" target="_blank">
+                <img src="images/amazon.png" height="25"/>
+              </a>
+              <a class="not-registered-click" title="Crate & Barrel">
+                <img src="images/cratebarrel.jpg" height="25"/>
+              </a>
+              <a class="not-registered-click" title="Bed Bath and Beyond">
+                <img src="images/bedbathbeyond.png" height="75"/>
+              </a>
+              <div id="not-registered">
+                <p>
+                  We have not registered here yet, but check back later for a working link. Thank you.
+                </p>
+                <p>
+                  (Click this box to dismiss.)
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
+        <div id="contact">
           <div class="header">
           </div>
-          Contact
+          <div id="contact-content">
+            <div id="contact-left">
+              <p>
+                We'd love for you to get in touch with us about any questions or comments you have.
+              </p>
+              <p>
+                Our mailing address is below, and you can use the buttons at right to contact us via email or Twitter.
+				      </p>
+              <p>
+                230 Ocean Pkwy Apt B7
+                <br>
+                Brooklyn, NY
+                <br>
+                11218
+              </p>
+            </div>
+            <div style="float:left; width=100px;">
+              <img class="vr" src="images/rule.png" style="height:200px"/>
+            </div>
+            <div id="contact-right">
+              <a id="email" href="mailto:kris.p.harper@gmail.com,phorner88@gmail.com?Subject=KHPH%20Wedding%2013" target="_blank">
+              </a>
+              <a id="twitter" href="https://twitter.com/share?url=&text=@krispharper%20@pch9857&hashtags=khph2013" target="_blank">
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

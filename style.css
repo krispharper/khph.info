@@ -29,17 +29,6 @@ img.hr{
     *display:inline;
     zoom:1;
 }
-div#not-registered{
-    display:none;
-    position:absolute;
-    width:200px;
-    background:#FFFFFF;
-    padding:10px 10px 10px 10px;
-    border:1px solid;
-    font-size:10pt;
-    box-shadow:0 0 5px 2px #999999;
-    z-index:10;
-}
 
 /* Main Sections */
 #content{
@@ -168,6 +157,9 @@ div#not-registered{
     text-decoration:none;
     color:#000000;
 }
+#about a:hover{
+    padding-left:10px;
+}
 .about-section-top{
     width:270px;
     margin:20px 10px 0px 10px;
@@ -244,6 +236,17 @@ img.headshot{
 }
 #registry-right a:hover{
     padding-left:10px;
+}
+div#not-registered{
+    display:none;
+    position:absolute;
+    width:200px;
+    background:#FFFFFF;
+    padding:10px 10px 10px 10px;
+    border:1px solid;
+    font-size:10pt;
+    box-shadow:0 0 5px 2px #999999;
+    z-index:10;
 }
 
 /* Contact */

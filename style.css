@@ -36,6 +36,7 @@ img.hr{
     width:880px;
     height:450px;
     box-shadow:0 0 10px 5px #999999;
+    behavior:url('PIE.htc');
 }
 #content-left{
     background-image:url(images/shadow-menu.jpg);
@@ -246,6 +247,7 @@ div#not-registered{
     border:1px solid;
     font-size:10pt;
     box-shadow:0 0 5px 2px #999999;
+    behavior:url('PIE.htc');
     z-index:10;
 }
 

@@ -48,7 +48,7 @@
     <script type="text/javascript">
       $(function() {
         $('a.not-registered-click').click(function(e) {
-          $('div#not-registered').fadeIn('slow')
+          $('div#not-registered').fadeIn('fast')
             .css('top', e.pageY)
             .css('left', e.pageX)
             .appendTo('body');
@@ -56,8 +56,8 @@
       });
 
       $(function() {
-        $('div#not-registered').click(function() {
-          $(this).hide();
+        $('body').mouseup(function() {
+          $('div#not-registered').fadeOut('fast');
         });
       });
     </script>
@@ -68,7 +68,7 @@
     <script type="text/javascript">
                 Cufon.replace('#menu-header, h1, .about-section-header, .event-section-header', { fontFamily: 'Goudy Bookletter 1911', hover: true });
                 Cufon.replace('#nav li a', { fontFamily: 'Quicksand Book Regular', hover: true });
-                Cufon.replace('.overlay p, p', { fontFamily: 'Quicksand Book Bold', hover: true });
+                Cufon.replace('p', { fontFamily: 'Quicksand Book Bold', hover: true });
     </script> 
     <meta http-equiv="X-UA-Compatible" content="IE-8"/>
   </head>
@@ -226,7 +226,7 @@
                   We have not registered here yet, but check back later for a working link. Thank you.
                 </p>
                 <p>
-                  (Click this box to dismiss.)
+                  (Click anywhere to dismiss.)
                 </p>
               </div>
             </div>

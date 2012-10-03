@@ -10,57 +10,11 @@
       </script>
     <![endif]-->
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/document-ready.js"></script>
     <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#content-right').cycle({
-          fx:                 'blindX',
-          speed:              'slow',
-          timeout:            0,
-          pager:              '#nav',
-          pagerAnchorBuilder: function(idx, slide) {
-              return '#nav li:eq(' + (idx) + ') a';
-          }
-        });
 
-        $('#contact-link').click(function() {
-          $('#nav li:eq(5) a').triggerHandler('click');
-          return false;
-        });
+    <script type="text/javascript" src="js/md5.js"></script>
 
-        $('#twitter').click(function(e) {
-          var width = 575,
-              height = 400,
-              left = ($(window).width() - width) / 2,
-              top = ($(window).height() - height) / 2,
-              url = this.href,
-              opts = 'status=1' +
-                     ',width=' + width +
-                     ',height=' + height +
-                     ',top=' + top +
-                     ',left=' + left;
-          
-          window.open(url, 'twitter', opts);
-          return false;
-        });
-      });
-    </script>
-    <script type="text/javascript">
-      $(function() {
-        $('a.not-registered-click').click(function(e) {
-          $('div#not-registered').fadeIn('fast')
-            .css('top', e.pageY)
-            .css('left', e.pageX)
-            .appendTo('body');
-        });
-      });
-
-      $(function() {
-        $('body').mouseup(function() {
-          $('div#not-registered').fadeOut('fast');
-        });
-      });
-    </script>
     <script type="text/javascript" src="js/cufon-yui.js"></script>
     <script type="text/javascript" src="js/goudy-bookletter.js"></script>
     <script type="text/javascript" src="js/quicksand.js"></script>
@@ -99,7 +53,7 @@
             </p>
           </div>
         </div>
-        <div id="about">
+        <div>
           <div class="header">
           </div>
           <div class="sectional-content">
@@ -188,16 +142,100 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="two-column">
           <div class="header">
           </div>
-          RSVP
+          <div class="two-column-content">
+            <div class="left-column">
+              <p>
+                If you received an invitation, enter the code found on it here:
+              </p>
+              <input id="rsvp-code" type="text" name="code">
+              <div id="rsvp-submit" class="rsvp-form base-form">
+                <p>
+                  Submit
+                </p>
+              </div>
+            </div>
+            <div class="right-column">
+              <form id="main-form" onsubmit="alert('test2');">
+                <div class="rsvp-form base-form">
+                  <p>
+                    Full name
+                    <input type="text" name="name">
+                  </p>
+                </div>
+                <div class="rsvp-form base-form">
+                  <p class="radio-choice">
+                    Will you be attending the wedding at St. James Cathedral, in Seattle?
+                  </p>
+                  <div class="radio-choice">
+                    <input type="radio" name="wedding" value="yes">Yes
+                    <input type="radio" name="wedding" value="no">No
+                  </div>
+                </div>
+                <div class="rsvp-form base-form">
+                  <p class="radio-choice">
+                    Will you be attending the reception at TBD, in Seattle?
+                  </p>
+                  <div class="radio-choice">
+                    <input type="radio" name="reception" value="yes">Yes
+                    <input type="radio" name="reception" value="no">No
+                  </div>
+                </div>
+                <div class="rsvp-form reception-form">
+                  <p>
+                    Meal choice
+                    <select name="meal">
+                      <option value="vegetarian">Vegetarian</option>
+                      <option value="chicken">Chicken</option>
+                      <option value="seafood">Seafood</option>
+                    </select>
+                  </p>
+                </div>
+                <div class="rsvp-form reception-form">
+                  <p class="radio-choice">
+                    Will you be bringing a guest?
+                  </p>
+                  <div class="radio-choice">
+                    <input type="radio" name="guest" value="yes">Yes
+                    <input type="radio" name="guest" value="no">No
+                  </div>
+                </div>
+                <div class="rsvp-form guest-form">
+                  <p>
+                    Guest's full name
+                    <input type="text" name="guest-name">
+                  </p>
+                </div>
+                <div class="rsvp-form guest-form">
+                  <p>
+                    Guest meal choice
+                    <select name="guest-meal">
+                      <option value="vegetarian">Vegetarian</option>
+                      <option value="chicken">Chicken</option>
+                      <option value="seafood">Seafood</option>
+                    </select>
+                  </p>
+                </div>
+                <div class="rsvp-form base-form">
+                  <p class="radio-choice">
+                    Will you be joining us in St. Louis?
+                  </p>
+                  <div class="radio-choice">
+                    <input type="radio" name="st-louis" value="yes">Yes
+                    <input type="radio" name="st-louis" value="no">No
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div id="registry">
+        <div class="two-column">
           <div class="header">
           </div>
-          <div id="registry-content">
-            <div id="registry-left">
+          <div class="two-column-content">
+            <div class="left-column">
               <p>
                 If you'd like to get us a gift, these are the places we're registered.
               </p>
@@ -211,7 +249,7 @@
             <div style="float:left; width=100px;">
               <img class="vr" src="images/rule.png" style="height:250px"/>
             </div>
-            <div id="registry-right">
+            <div id="registry-links" class="right-column">
               <a href="http://www.amazon.com/registry/wedding/1PI8CWRAJK3ES" title="Amazon" target="_blank">
                 <img src="images/amazon.png" height="25"/>
               </a>
@@ -232,11 +270,11 @@
             </div>
           </div>
         </div>
-        <div id="contact">
+        <div class="two-column">
           <div class="header">
           </div>
-          <div id="contact-content">
-            <div id="contact-left">
+          <div class="two-column-content">
+            <div class="left-column">
               <p>
                 We'd love for you to get in touch with us about any questions or comments you have.
               </p>
@@ -254,7 +292,7 @@
             <div style="float:left; width=100px;">
               <img class="vr" src="images/rule.png" style="height:250px"/>
             </div>
-            <div id="contact-right">
+            <div class="right-column">
               <a id="email" href="mailto:kris.p.harper@gmail.com,phorner88@gmail.com?Subject=KHPH%20Wedding%2013" target="_blank">
               </a>
               <a id="twitter" href="https://twitter.com/share?url=&text=@krispharper%20@pch9857&hashtags=khph2013" target="_blank">

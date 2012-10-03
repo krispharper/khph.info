@@ -3,12 +3,10 @@ body {
     /* background-image:url(images/penguin.gif); */
     font-family:Arial, Helvetica, sans-serif;
     font-size:11px;
+    color:#253A7A;
     margin:0 auto;
     padding:0;
     height:100%;
-}
-p{
-    color:#253A7A;
 }
 
 img.vr{
@@ -117,6 +115,28 @@ img.hr{
     font-size:0;
     line-height:0;
 }
+.two-column{
+    float:left;
+}
+.two-column-content{
+    margin:20px 10px 0px 10px;
+}
+.left-column{
+    float:left;
+    width:200px;
+    margin-right:30px;
+    font-size:10pt;
+}
+.right-column{
+    float:left;
+    width:300px;
+    margin-top:10px;
+}
+.right-column a{
+    display:block;
+    float:left;
+    margin:10px 0px 10px 50px;
+}
 
 /* Home */
 #home{
@@ -148,7 +168,6 @@ img.hr{
 }
 
 /* About Us */
-#about{}
 #about p{
     font-size:9pt;
     margin-bottom:-1px;
@@ -156,7 +175,7 @@ img.hr{
 }
 #about a:link, #about a:visited{
     text-decoration:none;
-    color:#000000;
+    color:#253A7A;
 }
 #about a:hover{
     padding-left:10px;
@@ -207,35 +226,41 @@ img.headshot{
     font-size:10pt;
 }
 
-#RSVP{
+/* RSVP */
+
+#main-form{
+    margin-top:-30px;
+}
+#main-form p.radio-choice{
+    width:200px;
+    float:left;
+}
+#main-form div.radio-choice{
+    margin-top:10px;
+    float:left;
+}
+#rsvp-submit{
+    color:#FFFFFF;
+    background:#253A7A;
+    border:#253A7A solid;
+    width:90px;
+    margin:140px auto;
+    text-align:center;
+}
+#rsvp-submit p{
+    margin:0px 10px 0px 10px;
+    padding:10px 0px 10px 0px;
+}
+.rsvp-form{
+    display:none;
+    clear:both;
 }
 
 /* Registry */
-#registry{
-    float:left;
-}
-#registry-content{
-    margin:20px 10px 0px 10px;
-}
-#registry-left{
-    float:left;
-    width:200px;
-    margin-right:30px;
-    font-size:10pt;
-}
-#registry-right{
-    float:left;
-    width:300px;
-    margin-top:10px;
-}
-#registry-right a, img{
+#registry-links a, img{
     border:none;
 }
-#registry-right a{
-    display:block;
-    margin:10px 0px 10px 50px;
-}
-#registry-right a:hover{
+#registry-links a:hover{
     padding-left:10px;
 }
 div#not-registered{
@@ -252,28 +277,6 @@ div#not-registered{
 }
 
 /* Contact */
-#contact{
-    float:left;
-}
-#contact-content{
-    margin:20px 10px 0px 10px;
-}
-#contact-left{
-    float:left;
-    width:200px;
-    margin-right:30px;
-    font-size:10pt;
-}
-#contact-right{
-    float:left;
-    width:300px;
-    margin-top:10px;
-}
-#contact-right a{
-    display:block;
-    float:left;
-    margin:10px 0px 10px 50px;
-}
 #email{
     width:100px;
     height:100px;

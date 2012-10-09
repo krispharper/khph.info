@@ -60,8 +60,8 @@ $(document).ready(function() {
             $('.reception-form').fadeIn('fast')
         }
         else {
-            $('.reception-form').fadeOut('fast');
-            $('.guest-form').fadeOut('fast');
+            $('.reception-form, .guest-form').fadeOut('fast');
+            resetFormElements($('.guest-form, .reception-form'));
         }
     });
 
@@ -71,6 +71,7 @@ $(document).ready(function() {
         }
         else {
             $('.guest-form').fadeOut('fast');
+            resetFormElements($('.guest-form'));
         }
     });
 
@@ -89,3 +90,7 @@ $(document).ready(function() {
     });
 });
 
+function resetFormElements($elems) {
+    $elems.find('input:text, select').val('');
+    $elems.find('input:radio').removeAttr('selected').removeAttr('checked');
+};

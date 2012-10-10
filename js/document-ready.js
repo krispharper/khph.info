@@ -80,7 +80,6 @@ $(document).ready(function() {
     });
 
     $('#main-form').submit(function() {
-        alert($(this).serialize());
         $.post('send-rsvp.php', $(this).serialize());
         return false;
     });

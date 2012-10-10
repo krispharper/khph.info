@@ -79,6 +79,12 @@ $(document).ready(function() {
         $('#main-form').submit();
     });
 
+    $('#main-form').submit(function() {
+        alert($(this).serialize());
+        $.post('send-rsvp.php', $(this).serialize());
+        return false;
+    });
+
     $('#rsvp-submit').hover(function() {
         $(this).css('color', '#253A7A')
                .css('background', '#FFFFFF');

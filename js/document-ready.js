@@ -92,6 +92,12 @@ $(document).ready(function() {
         $(this).css('color', '#FFFFFF')
                .css('background', '#253A7A');
         Cufon.refresh('p');
+    })
+    .mousedown(function() {
+        $(this).css('box-shadow', '0 0 5px 2px #999999 inset');
+    })
+    .mouseup(function() {
+        $(this).css('box-shadow', 'none');
     });
 });
 

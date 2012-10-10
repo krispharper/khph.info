@@ -218,6 +218,9 @@ img.headshot{
     *display:inline;
     zoom:1;
 }
+.event-section:hover{
+    padding-top:10px;
+}
 .event-section-header{
     font-size:16pt;
 }

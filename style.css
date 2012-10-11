@@ -60,12 +60,14 @@ img.hr{
     padding-top:20px;
 }
 #menu-divider{
-    background-image:url(images/divider.png);
-    background-repeat:no-repeat;
-    background-size:200px 10px;
-    background-position:center;
     width:250px; 
     height:20px;
+}
+#menu-divider img{
+    display:block;
+    margin:0 auto;
+    width:200px;
+    height:10px;
 }
 #menu{
     width:250px;
@@ -99,9 +101,11 @@ img.hr{
 .header{
     height:117px;
     width:630px;
-    background-image:url('images/banner.png');
-    background-size:100% 100%;
     background-color:#FFFFFF;
+}
+.header img{
+    height:117px;
+    width:630px;
 }
 .sectional-content{
     text-align:justify;
@@ -140,9 +144,12 @@ img.hr{
 
 /* Home */
 #home{
-    background-image:url(images/map.png);
-    background-size:100% 100%;
     background-color:#FFFFFF;
+    width:630px;
+    height:450px;
+    position:relative;
+}
+#home img{
     width:630px;
     height:450px;
 }
@@ -156,6 +163,10 @@ img.hr{
     padding:1px 25px;
     margin-top:270px;
     margin-left:230px;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:10;
 }
 .overlay h1{
     font-size:22pt;
@@ -247,7 +258,7 @@ img.headshot{
     background:#253A7A;
     border:#253A7A solid;
     width:90px;
-    margin:140px auto;
+    margin:100px auto;
     text-align:center;
 }
 #rsvp-submit p{

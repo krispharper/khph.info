@@ -32,16 +32,20 @@ $(document).ready(function() {
         return false;
     });
 
-    // Registry link handlers
-    $('a.not-registered-click').click(function(e) {
-        $('div#not-registered').fadeIn('fast')
-            .css('top', e.pageY)
-            .css('left', e.pageX)
+    // Popup code
+    $('.popup-trigger').click(function(e) {
+        var offset = $(this).offset();
+        var width = $(this).width();
+        var left = offset.left + width + $(this).data('distance') + "px";
+
+        $($(this).data('popup')).fadeIn('fast')
+            .css('top', offset.top + "px")
+            .css('left', left)
             .appendTo('body');
     });
 
     $('body').mouseup(function() {
-        $('div#not-registered').fadeOut('fast');
+        $('.popup').fadeOut('fast');
     });
 
     // RSVP handlers
@@ -80,7 +84,32 @@ $(document).ready(function() {
     });
 
     $('#main-form').submit(function() {
-        $.post('send-rsvp.php', $(this).serialize());
+        function popup(message) {
+            var submit = $('#rsvp-submit');
+            var offset = submit.offset();
+            var height = submit.height();
+            var top = offset.top + height + 20 + "px";
+
+            $('#submit-popup p').first().text(message);
+            Cufon.refresh('p');
+            $('#submit-popup').fadeIn('fast')
+                .css('top', top)
+                .css('left', offset.left + "px")
+                .appendTo('body');
+        };
+
+        $.post(
+            'send-rsvp.php',
+            $(this).serialize(),
+            function(data){
+                if (data == "1") {
+                    popup("Your RSVP was sent successfully!");
+                }
+                else {
+                    popup("There was an error sending your RSVP. Please contact us directly");
+                }
+            }
+        );
         return false;
     });
 

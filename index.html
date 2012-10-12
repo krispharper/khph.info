@@ -171,6 +171,14 @@
                   Submit
                 </p>
               </div>
+              <div id="submit-popup" class="popup">
+                <p>
+                  
+                </p>
+                <p>
+                  (Click anywhere to dismiss.)
+                </p>
+              </div>
             </div>
             <div class="right-column">
               <form id="main-form" action="#" method="post">
@@ -213,9 +221,17 @@
                     Will you be bringing a guest?
                   </p>
                   <div class="radio-choice">
-                    <input type="radio" name="guest" value="yes">Yes
+                    <input type="radio" name="guest" value="yes" class="popup-trigger" data-popup="#guest-popup" data-distance="70">Yes
                     <input type="radio" name="guest" value="no">No
                   </div>
+                </div>
+                <div id="guest-popup" class="popup">
+                  <p>
+                    If you are bringing a guest, please make sure he or she doesn't RSVP separately.
+                  </p>
+                  <p>
+                    (Click anywhere to dismiss.)
+                  </p>
                 </div>
                 <div class="rsvp-form guest-form">
                   <p>
@@ -269,13 +285,13 @@
               <a href="http://www.amazon.com/registry/wedding/1PI8CWRAJK3ES" title="Amazon" target="_blank">
                 <img src="images/amazon.png" height="25"/>
               </a>
-              <a class="not-registered-click" title="Crate & Barrel">
+              <a class="popup-trigger" data-popup="#registry-popup" data-distance="30">
                 <img src="images/cratebarrel.jpg" height="25"/>
               </a>
-              <a class="not-registered-click" title="Bed Bath and Beyond">
+              <a class="popup-trigger" data-popup="#registry-popup" data-distance="30">
                 <img src="images/bedbathbeyond.png" height="75"/>
               </a>
-              <div id="not-registered">
+              <div id="registry-popup" class="popup">
                 <p>
                   We have not registered here yet, but check back later for a working link. Thank you.
                 </p>

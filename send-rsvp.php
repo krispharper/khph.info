@@ -7,5 +7,5 @@
         $message .= ($key . ": " . $value . "\n");
     }
 
-    mail("kris.p.harper@gmail.com, phorner88@gmail.com", $subject, $message);
+    echo mail("kris.p.harper@gmail.com, phorner88@gmail.com", $subject, $message);
 ?>

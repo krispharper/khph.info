@@ -235,6 +235,9 @@ img.headshot{
     line-height:20px;
     font-size:10pt;
 }
+.event-section img{
+    width:140px;
+}
 
 /* RSVP */
 

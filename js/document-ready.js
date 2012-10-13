@@ -32,6 +32,14 @@ $(document).ready(function() {
         return false;
     });
 
+    $('.contact-image').hover(function() {
+        var src = $(this).attr('src').replace('white', 'black');
+        $(this).attr('src', src);
+    }, function() {
+        var src = $(this).attr('src').replace('black', 'white');
+        $(this).attr('src', src);
+    });
+
     // Popup code
     $('.popup-trigger').click(function(e) {
         var offset = $(this).offset();

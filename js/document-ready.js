@@ -56,6 +56,10 @@ $(document).ready(function() {
         $('.popup').fadeOut('fast');
     });
 
+    $('input:text[name=guest-name]').focus(function() {
+        $('.popup').fadeOut('fast');
+    });
+
     // RSVP handlers
     $('#rsvp-code').keyup(function() {
         var code = $(this).val();

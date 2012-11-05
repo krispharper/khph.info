@@ -3,11 +3,11 @@ if [ "$1" = "-d" ]; then
     echo "Deploying website to development server"
     find /var/www/* -exec rm -rv {} \;
     find /var/www/. -exec rm -rv {} \;
-    cp -rv /home/kris/Documents/Development/khph.info/* /var/www/
+    cp -rv ./* /var/www/
     rm -v /var/www/deploy
 elif [ "$1" = "-p" ]; then
     ssh 173.254.28.36 -l khphinfo 'find www/* -exec rm -rv {} \;'
-    scp -rv /home/kris/Documents/Development/khph.info/* khphinfo@173.254.28.36:www/
+    scp -rv ./* khphinfo@173.254.28.36:www/
     ssh 173.254.28.36 -l khphinfo 'rm www/deploy'
 else
     echo "Usage: deploy [-d | -p]" >&2

@@ -15,6 +15,10 @@ $(document).ready(function() {
         return false;
     });
 
+    //Photos page functions
+    $('#photos').load("get-photo-links.php");
+    $('.photo').fancybox();
+
     // Contact link handlers
     $('#twitter').click(function(e) {
         var width = 575,

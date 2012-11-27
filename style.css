@@ -239,6 +239,15 @@ img.headshot{
     width:140px;
 }
 
+/* Photos */
+
+#photos{
+    float:left;
+    width:650px;
+    height:333px;
+    overflow:auto;
+}
+
 /* RSVP */
 
 #main-form{
@@ -294,19 +303,9 @@ img.headshot{
     width:100px;
     height:100px;
     display:block;
-    /*background:transparent url('images/email-white.png') center top no-repeat;
-    background-size:100px 100px;*/
 }
-/*#email:hover{
-    background-image:url('images/email-black.png');
-}*/
 #twitter img{
     width:100px;
     height:100px;
     display:block;
-    /*background:transparent url('images/twitter-white.png') center top no-repeat;
-    background-size:100px 100px;*/
 }
-/*#twitter img:hover{
-    background-image:url('images/twitter-black.png');
-}*/

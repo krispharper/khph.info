@@ -11,8 +11,22 @@ $(document).ready(function() {
     });
 
     $('#contact-link').click(function() {
-        $('#nav li:eq(5) a').triggerHandler('click');
+        $('#content-right').cycle(6);
         return false;
+    });
+
+    window.onpopstate = function(e) {
+        changeToPage(e.state);
+    };
+
+    if (window.location.pathname != "/") {
+        var page = window.location.pathname.substring(1);
+        changeToPage(page);
+    }
+
+    $('#nav li a').click(function(){
+        var page = $(this).data('page')
+        history.pushState(page, '', page);
     });
 
     //Photos page functions
@@ -149,4 +163,20 @@ $(document).ready(function() {
 function resetFormElements($elems) {
     $elems.find('input:text, select').val('');
     $elems.find('input:radio').removeAttr('selected').removeAttr('checked');
+};
+
+function changeToPage(page) {
+    if (page == null) {
+        page = "home";
+    }
+
+    var $link = $('#nav li a').filter(function() {
+        return $(this).data('page') == page;
+    })
+    
+    if ($link.length > 0) {
+        var index = $link.parent().index();
+        index = index > 0 ? index : 0;
+        $('#content-right').cycle($link.parent().index());
+    }
 };

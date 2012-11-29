@@ -30,7 +30,7 @@ $(document).ready(function() {
     });
 
     //Photos page functions
-    $('#photos').load("get-photo-links.php");
+    $('#photos').load('get-photo-links.php');
     $('.photo').fancybox();
 
     // Contact link handlers
@@ -167,7 +167,7 @@ function resetFormElements($elems) {
 
 function changeToPage(page) {
     if (page == null) {
-        page = "home";
+        return;
     }
 
     var $link = $('#nav li a').filter(function() {

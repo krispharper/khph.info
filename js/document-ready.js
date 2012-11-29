@@ -24,14 +24,21 @@ $(document).ready(function() {
         changeToPage(page);
     }
 
-    $('#nav li a').click(function(){
+    $('#nav li a').click(function() {
         var page = $(this).data('page')
         history.pushState(page, '', page);
     });
 
     //Photos page functions
-    $('#photos').load('get-photo-links.php');
-    $('.photo').fancybox();
+    $('#photos').load('get-photo-links.php', function() {
+        $('.photo').fancybox();
+        var hash = window.location.hash;
+
+        if (hash) {
+            $(hash).fancybox().trigger('click');
+        }
+    });
+
 
     // Contact link handlers
     $('#twitter').click(function(e) {

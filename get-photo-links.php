@@ -2,6 +2,7 @@
   $photos = scandir('images/photos');
   natsort($photos);
 
+  echo '<div id="thumbnails">';
   foreach ($photos as $photo) {
     if (is_file('images/photos/'.$photo)) {
       $path_parts = pathinfo($photo);
@@ -12,4 +13,5 @@
         </a>';
     }
   }
+  echo '</div>';
 ?>

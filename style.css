@@ -248,6 +248,16 @@ img.headshot{
     overflow:auto;
 }
 
+#thumbnails{
+    width:600px;
+    margin:0px auto;
+    text-align:center;
+}
+
+.photo{
+    display:inline-block;
+}
+
 #social-buttons{
     display:none;
     margin-top:10px;

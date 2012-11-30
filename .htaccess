@@ -1,5 +1,7 @@
 Options -Indexes
 RewriteEngine On
-RewriteCond %{REQUEST_URI} !^/(images/.*|js/.*)$
 RewriteCond %{REQUEST_URI} !^(/*|/index.html)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^photos/(.*) $1 [L]
 RewriteRule ^[^\.]+$ index.html [L]

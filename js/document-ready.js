@@ -19,29 +19,78 @@ $(document).ready(function() {
         changeToPage(e.state);
     };
 
-    if (window.location.pathname != "/") {
-        var page = window.location.pathname.substring(1);
+    if (window.location.pathname != '/') {
+        var matches = window.location.pathname.match(/\/(\w+).*/);
+        var page = matches != null ? matches[1] : 'home';
+        history.replaceState(page);
         changeToPage(page);
     }
 
     $('#nav li a').click(function() {
+        var matches = window.location.pathname.match(/\/.+\/.*/);
         var page = $(this).data('page')
-        history.pushState(page, '', page);
+
+        if (matches) {
+            window.location.pathname = '/' + page;
+        }
+        else {
+            history.pushState(page, '', page);
+        }
     });
 
     //Photos page functions
     $('#photos').load('get-photo-links.php', function() {
-        $('.photo').fancybox();
-        var hash = window.location.hash;
+        $('.photo').fancybox({
+            afterClose: function() {
+                history.replaceState('/photos', '', '/photos');
+            },
+            afterLoad: function(current, previous) {
+                var $buttons = $('#social-buttons').clone(true);
+                $buttons
+                    .css('display', 'block')
+                    .css('opacity', '0')
+                    .hover(function() {
+                        $(this).fadeTo(400,1);
+                    }, function() {
+                        $(this).fadeTo(400,0);
+                    });
+                var origin = window.location.origin;
+                var state = '/photos/' + (current.index + 1);
+                var link = origin + state;
+                $buttons.find('.twitter-button')[0].href += link;
+                $buttons.find('.pinterest-button')[0].href += (link + "&media=" + origin + "/" + this.href);
+                $buttons.find('.email-button')[0].href += link;
+                this.skin.append($buttons);
+                history.replaceState(state, '', state);
+            }
+        });
 
-        if (hash) {
-            $(hash).fancybox().trigger('click');
+        var matches = window.location.pathname.match(/\/photos\/(\d+)/);
+        var number = matches != null ? matches[1] : null;
+
+        if (number) {
+            $('#image' + number).trigger('click');
         }
     });
 
+    $('.pinterest-button').click(function(e) {
+        var width = 632,
+            height = 270,
+            left = ($(window).width() - width) / 2,
+            top = ($(window).height() - height) / 2,
+            url = this.href,
+            opts = 'status=1' +
+                   ',width='  + width +
+                   ',height=' + height +
+                   ',top='    + top +
+                   ',left='   + left;
+        
+        window.open(url, 'pinterest', opts);
+        return false;
+    });
 
     // Contact link handlers
-    $('#twitter').click(function(e) {
+    $('.twitter-button').click(function(e) {
         var width = 575,
             height = 400,
             left = ($(window).width() - width) / 2,
@@ -69,10 +118,10 @@ $(document).ready(function() {
     $('.popup-trigger').click(function(e) {
         var offset = $(this).offset();
         var width = $(this).width();
-        var left = offset.left + width + $(this).data('distance') + "px";
+        var left = offset.left + width + $(this).data('distance') + 'px';
 
         $($(this).data('popup')).fadeIn('fast')
-            .css('top', offset.top + "px")
+            .css('top', offset.top + 'px')
             .css('left', left)
             .appendTo('body');
     });
@@ -89,7 +138,7 @@ $(document).ready(function() {
     $('#rsvp-code').keyup(function() {
         var code = $(this).val();
         
-        if (hex_md5(code) == "2115d6d1964d184b9867a9b452d7e8b7") {
+        if (hex_md5(code) == '2115d6d1964d184b9867a9b452d7e8b7') {
             $('.base-form').fadeIn('fast')
             $(this).attr('readonly', 'readonly');
             $('input:text[name="name"]', '#main-form').focus();
@@ -97,7 +146,7 @@ $(document).ready(function() {
     });
 
     $('input:radio[name="reception"]', '#main-form').change(function() {
-        if ($(this).val() == "yes") {
+        if ($(this).val() == 'yes') {
             $('.reception-form').fadeIn('fast')
         }
         else {
@@ -107,7 +156,7 @@ $(document).ready(function() {
     });
 
     $('input:radio[name="guest"]', '#main-form').change(function() {
-        if ($(this).val() == "yes") {
+        if ($(this).val() == 'yes') {
             $('.guest-form').fadeIn('fast')
         }
         else {
@@ -125,13 +174,13 @@ $(document).ready(function() {
             var submit = $('#rsvp-submit');
             var offset = submit.offset();
             var height = submit.height();
-            var top = offset.top + height + 20 + "px";
+            var top = offset.top + height + 20 + 'px';
 
             $('#submit-popup p').first().text(message);
             Cufon.refresh('p');
             $('#submit-popup').fadeIn('fast')
                 .css('top', top)
-                .css('left', offset.left + "px")
+                .css('left', offset.left + 'px')
                 .appendTo('body');
         };
 
@@ -139,11 +188,11 @@ $(document).ready(function() {
             'send-rsvp.php',
             $(this).serialize(),
             function(data){
-                if (data == "1") {
-                    popup("Your RSVP was sent successfully!");
+                if (data == '1') {
+                    popup('Your RSVP was sent successfully!');
                 }
                 else {
-                    popup("There was an error sending your RSVP. Please contact us directly");
+                    popup('There was an error sending your RSVP. Please contact us directly');
                 }
             }
         );

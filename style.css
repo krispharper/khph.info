@@ -248,6 +248,21 @@ img.headshot{
     overflow:auto;
 }
 
+#social-buttons{
+    display:none;
+    margin-top:10px;
+}
+
+.social-button{
+    width:20px;
+    height:20px;
+    display:block;
+}
+
+.social-button-wrapper{
+    display:inline-block;
+}
+
 /* RSVP */
 
 #main-form{
@@ -299,12 +314,7 @@ img.headshot{
 }
 
 /* Contact */
-#email img{
-    width:100px;
-    height:100px;
-    display:block;
-}
-#twitter img{
+.contact-image{
     width:100px;
     height:100px;
     display:block;

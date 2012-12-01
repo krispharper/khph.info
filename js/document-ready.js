@@ -22,11 +22,14 @@ $(document).ready(function() {
     if (window.location.pathname != '/') {
         var matches = window.location.pathname.match(/\/(\w+).*/);
         var page = matches != null ? matches[1] : 'home';
-        history.replaceState(page);
         changeToPage(page);
+    }
+    else {
+        changeState('home', true);
     }
 
     $('#nav li a').click(function() {
+        console.log('test');
         var matches = window.location.pathname.match(/\/.+\/.*/);
         var page = $(this).data('page')
 
@@ -34,15 +37,20 @@ $(document).ready(function() {
             window.location.pathname = '/' + page;
         }
         else {
-            history.pushState(page, '', page);
+            changeState(page, false);
         }
+    });
+
+    // Event page functions
+    $('.map-link').fancybox({
+        type: 'iframe'
     });
 
     //Photos page functions
     $('#photos').load('get-photo-links.php', function() {
         $('.photo').fancybox({
             afterClose: function() {
-                history.replaceState('/photos', '', '/photos');
+                changeState('photos', true, '/photos');
             },
             afterLoad: function(current, previous) {
                 var $buttons = $('#social-buttons').clone(true);
@@ -61,7 +69,7 @@ $(document).ready(function() {
                 $buttons.find('.pinterest-button')[0].href += (link + "&media=" + origin + "/" + this.href);
                 $buttons.find('.email-button')[0].href += link;
                 this.skin.append($buttons);
-                history.replaceState(state, '', state);
+                changeState(state, true);
             }
         });
 
@@ -219,7 +227,7 @@ $(document).ready(function() {
 function resetFormElements($elems) {
     $elems.find('input:text, select').val('');
     $elems.find('input:radio').removeAttr('selected').removeAttr('checked');
-};
+}
 
 function changeToPage(page) {
     if (page == null) {
@@ -235,4 +243,22 @@ function changeToPage(page) {
         index = index > 0 ? index : 0;
         $('#content-right').cycle($link.parent().index());
     }
-};
+}
+
+function changeState(state, replace, page) {
+    page = (typeof page === 'undefined') ? state : page;
+
+    if (replace) {
+        if (history.replaceState) {
+            history.replaceState(state, '', page);
+        }
+    }
+    else {
+        if (history.pushState){
+            history.pushState(state, '', page);
+        }
+        else {
+            window.location.pathname = "/" + state;
+        }
+    }
+}

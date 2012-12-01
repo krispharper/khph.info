@@ -62,11 +62,11 @@ $(document).ready(function() {
                     }, function() {
                         $(this).fadeTo(400,0);
                     });
-                var origin = window.location.origin;
+                var base = window.location.protocol + '//' + window.location.host;
                 var state = '/photos/' + (current.index + 1);
-                var link = origin + state;
+                var link = base + state;
                 $buttons.find('.twitter-button')[0].href += link;
-                $buttons.find('.pinterest-button')[0].href += (link + "&media=" + origin + "/" + this.href);
+                $buttons.find('.pinterest-button')[0].href += (link + "&media=" + base + "/" + this.href);
                 $buttons.find('.email-button')[0].href += link;
                 this.skin.append($buttons);
                 changeState(state, true);

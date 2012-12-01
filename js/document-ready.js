@@ -114,6 +114,27 @@ $(document).ready(function() {
         return false;
     });
 
+    $('.facebook-send').click(function() {
+        FB.init({
+            appId: '266467610143200',
+            xfbml: true
+        });
+        var url = window.location.protocol + '//' + window.location.host;
+        url = 'http://khph.info';
+        FB.ui({
+            method: 'send',
+            to: 'paula.c.horner',
+            name: 'KHPH Wedding 2013',
+            link: url,
+            picture: url + '/images/map.png',
+            description: "A message concerning your wedding."
+        });
+    });
+
+    $('.mail-link').fancybox({
+        type: 'inline'
+    });
+
     $('.contact-image').hover(function() {
         var src = $(this).attr('src').replace('white', 'black');
         $(this).attr('src', src);

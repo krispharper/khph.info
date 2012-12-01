@@ -329,3 +329,9 @@ img.headshot{
     height:100px;
     display:block;
 }
+
+#address{
+    width:300px;
+    display:none;
+    font-size:12pt;
+}

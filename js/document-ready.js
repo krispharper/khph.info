@@ -79,6 +79,7 @@ $(document).ready(function() {
         if (number) {
             $('#image' + number).trigger('click');
         }
+        Cufon.refresh('p');
     });
 
     $('.pinterest-button').click(function(e) {

@@ -14,4 +14,11 @@
     }
   }
   echo '</div>';
+  echo '
+    <hr>
+    <div>
+      <p>
+        Our engagement photos were taken by the wonderful <a href="http://on.fb.me/QUkGrZ">Sarina Cass</a>
+      </p>
+    </div>';
 ?>

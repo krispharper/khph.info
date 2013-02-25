@@ -167,8 +167,12 @@ $(document).ready(function() {
     // RSVP handlers
     $('#rsvp-code').keyup(function() {
         var code = $(this).val();
+        var hash = hex_md5(code)
         
-        if (hex_md5(code) == '2115d6d1964d184b9867a9b452d7e8b7') {
+        if (
+             hash == '2115d6d1964d184b9867a9b452d7e8b7' ||
+             hash == 'c3dd243c896666edbb8e25fca019a883'
+        ) {
             $('.base-form').fadeIn('fast')
             $(this).attr('readonly', 'readonly');
             $('input:text[name="name"]', '#main-form').focus();

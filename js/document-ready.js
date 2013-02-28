@@ -174,6 +174,7 @@ $(document).ready(function() {
              hash == 'c3dd243c896666edbb8e25fca019a883'
         ) {
             $('.base-form').fadeIn('fast')
+            $('#rsvp-message').fadeOut('fast')
             $(this).attr('readonly', 'readonly');
             $('input:text[name="name"]', '#main-form').focus();
         }

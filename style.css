@@ -335,3 +335,9 @@ img.headshot{
     display:none;
     font-size:12pt;
 }
+
+#parking-ceremony, #parking-reception{
+    width:400px;
+    display:none;
+    font-size:12pt;
+}

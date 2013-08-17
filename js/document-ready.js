@@ -132,10 +132,6 @@ $(document).ready(function() {
         });
     });
 
-    $('.mail-link').fancybox({
-        type: 'inline'
-    });
-
     $('.contact-image').hover(function() {
         var src = $(this).attr('src').replace('white', 'black');
         $(this).attr('src', src);
@@ -162,6 +158,10 @@ $(document).ready(function() {
 
     $('input:text[name=guest-name]').focus(function() {
         $('.popup').fadeOut('fast');
+    });
+
+    $('.popup-link').fancybox({
+        type: 'inline'
     });
 
     // RSVP handlers

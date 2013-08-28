@@ -3,7 +3,7 @@ if [ "$1" = "-d" ]; then
     echo "Deploying website to development server"
     rsync -av --delete --exclude='deploy' --exclude='*~' --exclude='*.swp' --exclude='.git' . /var/www
 elif [ "$1" = "-p" ]; then
-    rsync -avze ssh --delete --exclude='deploy' --exclude='*~' --exclude='*.swp' --exclude='.git' . khphinfo@173.254.28.36:www/
+    rsync -avze ssh --delete --exclude='deploy' --exclude='*~' --exclude='*.swp' --exclude='.git' . krisphar@174.136.13.224:www/subdomains/khph.info/
 else
     echo "Usage: deploy [-d | -p]" >&2
     exit 1

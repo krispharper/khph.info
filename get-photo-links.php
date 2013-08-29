@@ -1,15 +1,21 @@
 <?php
-  $photos = scandir('images/photos');
+  $section = $_GET['section'];
+
+  if (!in_array($section, array('engagement', 'crowd-sourced')) {
+    exit;
+  }
+
+  $photos = scandir('images/photos/'.$section);
   natsort($photos);
 
   echo '<div id="thumbnails">';
   foreach ($photos as $photo) {
-    if (is_file('images/photos/'.$photo)) {
+    if (is_file('images/photos/'.$section.'/'.$photo)) {
       $path_parts = pathinfo($photo);
       $name = $path_parts['filename'];
       echo '
-        <a rel="photos" id="image'.$name.'" class="photo" href="images/photos/'.$photo.'">
-          <img src="images/photos/thumbnails/'.$photo.'"/>
+        <a rel="'.$section.'-photos" id="'$section.'-image'.$name.'" class="photo" href="images/photos/'.$section.'/'.$photo.'">
+          <img src="images/photos/'.$section.'/thumbnails/'.$photo.'"/>
         </a>';
     }
   }

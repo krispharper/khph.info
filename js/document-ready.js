@@ -47,6 +47,7 @@ $(document).ready(function() {
     });
 
     //Photos page functions
+    /*
     $('#photos').load('get-photo-links.php', function() {
         $('.photo').fancybox({
             afterClose: function() {
@@ -80,6 +81,27 @@ $(document).ready(function() {
             $('#image' + number).trigger('click');
         }
         Cufon.refresh('p');
+    });
+    */
+    
+    $('.photo-section').hover(function() {
+            $(this).fadeTo(100, .75);
+        }, function() {
+            $(this).fadeTo(100, 1);
+    });
+
+    $('#photo-sections a').click(function(e) {
+        e.preventDefault();
+        $(this).parent().slideUp(500, function() {
+            $('#photo-section-photos').slideDown(500);
+        });
+    });
+
+    $('#photo-section-photos a').click(function(e) {
+        e.preventDefault();
+        $(this).parent().slideUp(500, function() {
+            $('#photo-sections').slideDown(500);
+        });
     });
 
     $('.pinterest-button').click(function(e) {

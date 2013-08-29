@@ -239,19 +239,51 @@ img.headshot{
     width:140px;
 }
 
+#parking-ceremony, #parking-reception{
+    width:400px;
+    display:none;
+    font-size:12pt;
+}
+
 /* Photos */
 
-#photos{
+#photo-sections{
     float:left;
-    width:650px;
+    width:630px;
     height:333px;
     overflow:auto;
+    background:black;
 }
 
 #thumbnails{
     width:600px;
     margin:0px auto;
     text-align:center;
+}
+
+.photo-section{
+    float:left;
+    height:333px;
+    width:315px;
+    background:black;
+    /*background-color:red;
+    border:solid;*/
+}
+
+.photo-section-header{
+    text-align:center;
+    background-color:#FFFFFF;
+    display:inline-block;
+    vertical-align:top;
+    width:315px;
+    height:50px;
+    /*border-style:solid;
+    border-width:1px;
+    width:315px;*/
+}
+
+.photo-section-thumbnail{
+    display:block;
 }
 
 .photo{
@@ -336,8 +368,3 @@ img.headshot{
     font-size:12pt;
 }
 
-#parking-ceremony, #parking-reception{
-    width:400px;
-    display:none;
-    font-size:12pt;
-}

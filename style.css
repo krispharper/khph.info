@@ -252,7 +252,6 @@ img.headshot{
     width:630px;
     height:333px;
     overflow:auto;
-    background:black;
 }
 
 #thumbnails{
@@ -261,13 +260,10 @@ img.headshot{
     text-align:center;
 }
 
-.photo-section{
+.photo-section-button{
     float:left;
     height:333px;
     width:315px;
-    background:black;
-    /*background-color:red;
-    border:solid;*/
 }
 
 .photo-section-header{
@@ -277,9 +273,6 @@ img.headshot{
     vertical-align:top;
     width:315px;
     height:50px;
-    /*border-style:solid;
-    border-width:1px;
-    width:315px;*/
 }
 
 .photo-section-thumbnail{
@@ -288,6 +281,25 @@ img.headshot{
 
 .photo{
     display:inline-block;
+}
+
+#photo-back{
+    display:inline-block;
+    text-align:center;
+    background-color:#FFFFFF;
+    height:50px;
+    width:630px;
+}
+
+#photo-back h1{
+    margin-left:20px;
+}
+
+#photo-section-photos{
+    float:left;
+    height:283px;
+    width:650px;
+    overflow:auto;
 }
 
 #social-buttons{

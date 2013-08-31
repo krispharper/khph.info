@@ -47,44 +47,39 @@ $(document).ready(function() {
     });
 
     //Photos page functions
-    /*
-    $('#photos').load('get-photo-links.php', function() {
-        $('.photo').fancybox({
-            afterClose: function() {
-                changeState('photos', true, '/photos');
-            },
-            afterLoad: function(current, previous) {
-                var $buttons = $('#social-buttons').clone(true);
-                $buttons
-                    .css('display', 'block')
-                    .css('opacity', '0')
-                    .hover(function() {
-                        $(this).fadeTo(400,1);
-                    }, function() {
-                        $(this).fadeTo(400,0);
-                    });
-                var base = window.location.protocol + '//' + window.location.host;
-                var state = '/photos/' + (current.index + 1);
-                var link = base + state;
-                $buttons.find('.twitter-button')[0].href += link;
-                $buttons.find('.pinterest-button')[0].href += (link + "&media=" + base + "/" + this.href);
-                $buttons.find('.email-button')[0].href += link;
-                this.skin.append($buttons);
-                changeState(state, true);
+
+    function loadPhotoSection(section) {
+        $('#photo-section-photos').load('get-photo-links.php?section=' + section, function() {
+            $('.photo').fancybox({
+                afterClose: function() {
+                    changeState('photos', true, '/photos');
+                },
+                afterLoad: function(current, previous) {
+                    var $buttons = $('#social-buttons').clone(true);
+                    $buttons.css('display', 'block');
+                    var base = window.location.protocol + '//' + window.location.host;
+                    var state = '/photos/' + (current.index + 1);
+                    var link = base + state;
+                    $buttons.find('.twitter-button')[0].href += link;
+                    $buttons.find('.pinterest-button')[0].href += (link + "&media=" + base + "/" + this.href);
+                    $buttons.find('.email-button')[0].href += link;
+                    this.skin.append($buttons);
+                    changeState(state, true);
+                }
+            });
+
+            var matches = window.location.pathname.match(/\/photos\/(\d+)/);
+            var number = matches != null ? matches[1] : null;
+
+            if (number) {
+                $('#image' + number).trigger('click');
             }
+            Cufon.refresh('p');
         });
+    }
 
-        var matches = window.location.pathname.match(/\/photos\/(\d+)/);
-        var number = matches != null ? matches[1] : null;
-
-        if (number) {
-            $('#image' + number).trigger('click');
-        }
-        Cufon.refresh('p');
-    });
-    */
     
-    $('.photo-section').hover(function() {
+    $('.photo-section-button, #photo-back').hover(function() {
             $(this).fadeTo(100, .75);
         }, function() {
             $(this).fadeTo(100, 1);
@@ -92,12 +87,14 @@ $(document).ready(function() {
 
     $('#photo-sections a').click(function(e) {
         e.preventDefault();
+        var section = $(this).attr("href");
         $(this).parent().slideUp(500, function() {
-            $('#photo-section-photos').slideDown(500);
+            $('#photo-section').slideDown(500);
+            loadPhotoSection(section);
         });
     });
 
-    $('#photo-section-photos a').click(function(e) {
+    $('#photo-section a').click(function(e) {
         e.preventDefault();
         $(this).parent().slideUp(500, function() {
             $('#photo-sections').slideDown(500);

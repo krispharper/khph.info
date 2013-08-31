@@ -1,7 +1,7 @@
 <?php
   $section = $_GET['section'];
 
-  if (!in_array($section, array('engagement', 'crowd-sourced')) {
+  if (!in_array($section, array('engagement', 'crowd-sourced'))) {
     exit;
   }
 
@@ -14,7 +14,7 @@
       $path_parts = pathinfo($photo);
       $name = $path_parts['filename'];
       echo '
-        <a rel="'.$section.'-photos" id="'$section.'-image'.$name.'" class="photo" href="images/photos/'.$section.'/'.$photo.'">
+        <a rel="'.$section.'-photos" id="'.$section.'-image'.$name.'" class="photo" href="images/photos/'.$section.'/'.$photo.'">
           <img src="images/photos/'.$section.'/thumbnails/'.$photo.'"/>
         </a>';
     }
